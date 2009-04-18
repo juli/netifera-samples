@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="com.netifera.platform.ui.samples.PerspectiveFactoryKuza55"
+            icon="icons/sample.png"
+            id="com.netifera.platform.ui.samples.perspectivekuza55"
+            name="kuza55">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="com.netifera.platform.ui.samples.toolbar1">
+            <command
+                  commandId="com.netifera.platform.ui.samples.command1"
+                  icon="icons/sample.png"
+                  label="sample"
+                  style="push"
+                  tooltip="Sample Toolbar command">
+               <visibleWhen
+                     checkEnabled="false">
+   				<with variable="activeWorkbenchWindow.activePerspective">
+         			<equals value="com.netifera.platform.ui.samples.perspectivekuza55"/>
+   				</with>
+               </visibleWhen>
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="com.netifera.platform.ui.samples.Command1Handler"
+            id="com.netifera.platform.ui.samples.command1"
+            name="command1">
+      </command>
+   </extension>
+
+</plugin>
